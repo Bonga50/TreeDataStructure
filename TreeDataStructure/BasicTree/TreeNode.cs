@@ -13,12 +13,15 @@ namespace TreeDataStructure.BasicTree
         public TreeNode parent { get; set; }
         public List<TreeNode> children { get; set; }
 
-        public TreeNode(int data)
+        public TreeNode(int data,TreeNode parent)
         {
             this.data = data;
+            this.parent = parent;
             children = new();      
         }
-
+        public void addChild(int value) {
+        this.children.Add(new TreeNode(value,this));
+        }
         public override string? ToString()
         {
             return $"Data child {data} parent: {parent.data} ";
